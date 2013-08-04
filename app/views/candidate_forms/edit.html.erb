@@ -1,0 +1,167 @@
+<%- model_class = CandidateForm -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human %></h1>
+</div>
+
+
+
+<%= form_for @candidate_form, :url => { :action => "update" }, :validate => true, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :contact, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :contact, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :email, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :email, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :birth_date, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.date_select :birth_date, :start_year => (Date.current - 18.year).year, :end_year => (Date.current - 120.year).year, :class => 'date_select' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :gender, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.radio_button :gender, "Male" %>Male &nbsp;
+      <%= f.radio_button :gender, "Female" %>Female
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :nationality, :class => 'control-label' %>
+    <div class="controls">
+      <% NATIONALITY.each do |value| %>
+        <% if value != 'Other' %>
+          <%= f.radio_button :nationality, value %><%= value %>&nbsp;
+        <% else %>
+          <%= f.radio_button :nationality, value %><%= value %>:
+          <%= f.text_field :other_nationality, :class => 'text_field' %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :living_in_emirates, :class => 'control-label' %>
+    <div class="controls">
+      <% LIVE_IN_EMIRATE.each do |value| %>
+        <%= f.radio_button :living_in_emirates, value %><%= value %>&nbsp;
+      <% end %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :visa_status, :class => 'control-label' %>
+    <div class="controls">
+      <% VISA_STATUS.each do |value| %>
+        <% if value != 'Other' %>
+           <%= f.radio_button :visa_status, value %><%= value %>&nbsp;
+        <% else %>
+          <%= f.radio_button :visa_status, value %><%= value %>:
+          <%= f.text_field :other_visa_status, :class => 'text_field' %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :visa_valid_till, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.date_select :visa_valid_till, :discard_day => true, :start_year => Date.today.year, :end_year => (Date.today + 20.year).year, :class => 'date_select' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :emirate_id, :class => 'control-label' %>
+    <div class="controls">
+      <% EMIRATE_ID.each do |value| %>
+        <%= f.radio_button :emirate_id, value %><%= value %>&nbsp;
+      <% end %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :languages_known, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.fields_for :languages_known do |w| %>
+        <% LANGUAGES_KNOWN.each do |value| %>
+          <% if @lang.include?(value) %>
+            <%= w.check_box value, checked: ("checked") %><%= value %>&nbsp;
+          <% else %>
+            <%= w.check_box value %><%= value %>&nbsp;
+          <% end %>
+        <% end %>
+        <%= f.text_field :other_language, :class => 'text_field' %>
+      <% end %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :uae_dl, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.radio_button :uae_dl, "Yes" %>Yes&nbsp;
+      <%= f.radio_button :uae_dl, "No" %>No
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :have_car, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.radio_button :have_car, "Yes" %>Yes&nbsp;
+      <%= f.radio_button :have_car, "No" %>No
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :experience_in_uae, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.radio_button :experience_in_uae, "Yes" %>Yes&nbsp;
+      <%= f.radio_button :experience_in_uae, "No" %>No
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :experience_in_sp, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.fields_for :experience_in_sp do |w| %>
+        <% EXPERIENCE_SELL_PROM.each do |value| %>
+          <% if @experience_in_sp.include?(value) %>
+            <%= w.check_box value, checked: ("checked") %><%= value %>&nbsp;
+          <% else %>
+            <%= w.check_box value %><%= value %>&nbsp;
+          <% end %>
+        <% end %>
+        <%= f.text_field :other_experience_in_sp, :class => 'text_field' %>
+      <% end %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :job_type, :class => 'control-label' %>
+    <div class="controls">
+      <% TYPE_OF_JOB.each do |value| %>
+        <%= f.radio_button :job_type, value %><%= value %>&nbsp;
+      <% end %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :resume, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.file_field :resume, :class => 'text_field',:title => "Add Resume" %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :photo, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.file_field :photo, :class => 'text_field',:title => "Add Resume" %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+      user_candidate_form_path(current_user), :class => 'btn' %>
+  </div>
+<% end %>
+

@@ -1,0 +1,63 @@
+<%- model_class = CandidateForm -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @candidate_form.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:contact) %>:</strong></dt>
+  <dd><%= @candidate_form.contact %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
+  <dd><%= @candidate_form.email %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:birth_date) %>:</strong></dt>
+  <dd><%= @candidate_form.birth_date %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:gender) %>:</strong></dt>
+  <dd><%= @candidate_form.gender %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:nationality) %>:</strong></dt>
+  <dd><%= @candidate_form.nationality %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:other_nationality) %>:</strong></dt>
+  <dd><%= @candidate_form.other_nationality %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:living_in_emirates) %>:</strong></dt>
+  <dd><%= @candidate_form.living_in_emirates %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:visa_status) %>:</strong></dt>
+  <dd><%= @candidate_form.visa_status %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:other_visa_status) %>:</strong></dt>
+  <dd><%= @candidate_form.other_visa_status %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:visa_valid_till) %>:</strong></dt>
+  <dd><%= @candidate_form.visa_valid_till %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:emirate_id) %>:</strong></dt>
+  <dd><%= @candidate_form.emirate_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:languages_known) %>:</strong></dt>
+  <dd><%= @candidate_form.languages_known %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:other_language) %>:</strong></dt>
+  <dd><%= @candidate_form.other_language %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:uae_dl) %>:</strong></dt>
+  <dd><%= @candidate_form.uae_dl %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:have_car) %>:</strong></dt>
+  <dd><%= @candidate_form.have_car %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:experience_in_uae) %>:</strong></dt>
+  <dd><%= @candidate_form.experience_in_uae %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:experience_in_sp) %>:</strong></dt>
+  <dd><%= @candidate_form.experience_in_sp %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:other_experience_in_sp) %>:</strong></dt>
+  <dd><%= @candidate_form.other_experience_in_sp %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:job_type) %>:</strong></dt>
+  <dd><%= @candidate_form.job_type %></dd>
+</dl>
+
+<div class="form-actions">
+  <!--
+  <%#= link_to t('.back', :default => t("helpers.links.back")),
+              candidate_forms_path, :class => 'btn'  %>
+  -->
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_user_candidate_form_path(current_user), :class => 'btn' %>
+  <!--
+  <%#= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              candidate_form_path(@candidate_form),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+  -->
+</div>

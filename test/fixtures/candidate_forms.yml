@@ -1,0 +1,37 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  contact: MyString
+  email: MyString
+  birth_date: 2013-07-30
+  gender: MyString
+  nationality: MyString
+  living_in_emirates: MyString
+  visa_status: MyString
+  visa_valid_till: 2013-07-30
+  emirate_id: MyString
+  languages_known: MyString
+  uae_dl: MyString
+  have_car: MyString
+  experience_in_uae: MyString
+  experience_in_sp: MyString
+  job_type: MyString
+
+two:
+  name: MyString
+  contact: MyString
+  email: MyString
+  birth_date: 2013-07-30
+  gender: MyString
+  nationality: MyString
+  living_in_emirates: MyString
+  visa_status: MyString
+  visa_valid_till: 2013-07-30
+  emirate_id: MyString
+  languages_known: MyString
+  uae_dl: MyString
+  have_car: MyString
+  experience_in_uae: MyString
+  experience_in_sp: MyString
+  job_type: MyString
