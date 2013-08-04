@@ -3,12 +3,12 @@ ActionMailer::Base.smtp_settings = {
   :port  => 587,
   :domain  => 'localhost:3000',
   :user_name => "abstractsurvey@gmail.com",
-  :password => "",
+  :password => "friendaditi89",
   :authentication => 'plain',
   :enable_starttls_auto => true
 }
 
-ActionMailer::Base.default_url_options[:host] = "stark-river-8626.herokuapp.com"
+ActionMailer::Base.default_url_options[:host] = "intense-escarpment-3610.herokuapp.com/"
 #Mail.register_interceptor(DevelopmentMailInterceptor) if Rails.env.development?
 
 class OverrideMailRecipient
